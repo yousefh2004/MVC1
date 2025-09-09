@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+    <h1>Products:</h1>
+    @foreach (var item in @Model)
+    {
+        <h2>@item.Name</h2>
+        <div style="display: flex; gap: 10px;">
+            <a href="/Product/Details/@item.Id">Details</a>
+            <button class="btn btn-outline-danger" type="submit"> <a href="/Product/Delete/@item.Id">Delete</a></button>
+        </div>
+    }
+    
+    </body>
+    </html>
