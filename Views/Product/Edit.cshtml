@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+    <h1 class="mb-5">Edit</h1>
+    <form method="post" action="/Product/Update">
+        <div class="mb-3">
+            <input type="hidden" name="Id" placeholder="Product name" class="form-control" value="@Model.Id" />
+            <input type="text" name="Name" placeholder="Product name" class="form-control" value="@Model.Name" />
+        </div>
+        <div class="mb-3">
+            <textarea placeholder="Product description..." name="Description" class="form-control">@Model.Description</textarea>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="Price" placeholder="Product price" class="form-control" value="@Model.Price" />
+        </div>
+        <div>
+            <button class="btn btn-outline-primary" type="submit">Save</button>
+        </div>
+    </form>
+    
+    </body>
+    </html>

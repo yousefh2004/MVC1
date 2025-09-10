@@ -9,9 +9,10 @@
     @foreach (var item in @Model)
     {
         <h2>@item.Name</h2>
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 20px;align-items:center">
             <a href="/Product/Details/@item.Id">Details</a>
             <button class="btn btn-outline-danger" type="submit"> <a href="/Product/Delete/@item.Id">Delete</a></button>
+            <button class="btn btn-outline-secondary" type="submit"> <a href="/Product/Edit/@item.Id">Edit</a></button>
         </div>
     }
     

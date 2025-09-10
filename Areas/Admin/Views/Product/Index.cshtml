@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="p-4">
+
+    <h1 class="mb-4">Products</h1>
+
+    <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width: 50%">Product Name</th>
+                <th style="width: 50%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><h5 class="mb-0">@item.Name</h5></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="/admin/Product/Details/@item.Id" class="btn btn-info btn-sm">Details</a>
+                            <a href="/admin/Product/Edit/@item.Id" class="btn btn-secondary btn-sm">Edit</a>
+                            <a href="/admin/Product/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

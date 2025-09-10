@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (for stars) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header bg-info text-white rounded-top-4">
+                        <h3 class="mb-0">📖 Product Details</h3>
+                    </div>
+                    <div class="card-body p-4">
+
+                        <!-- Product Image -->
+                        @if (!string.IsNullOrEmpty(@Model.Image))
+                        {
+                            <div class="text-center mb-4">
+                                <img src="~/images/@Model.Image" alt="@Model.Name" class="img-fluid rounded-3 shadow-sm" style="max-height: 250px;" />
+                            </div>
+                        }
+
+                        <!-- Name -->
+                        <h4 class="fw-bold text-primary">@Model.Name</h4>
+
+                        <!-- Description -->
+                        <p class="text-muted">@Model.Description</p>
+
+                        <!-- Price -->
+                        <p><span class="fw-semibold">💲 Price:</span> @Model.Price $</p>
+
+                        <!-- Quantity -->
+                        <p><span class="fw-semibold">📦 Quantity:</span> @Model.Quantity</p>
+
+                        <!-- Discount -->
+                        @if (Model.Discount > 0)
+                        {
+                            <p><span class="fw-semibold text-success">🔥 Discount:</span> @Model.Discount %</p>
+                        }
+
+                        <!-- Category -->
+                        @if (Model.Category != null)
+                        {
+                            <p><span class="fw-semibold">📂 Category:</span> @Model.Category.Name</p>
+                        }
+
+                        <!-- Rate -->
+                        <div class="mb-3">
+                            <span class="fw-semibold">⭐ Rating:</span>
+                            <span class="text-warning">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Model.Rate)
+                                    {
+                                        <i class="bi bi-star-fill"></i> <!-- Filled star -->
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-star"></i> <!-- Empty star -->
+                                    }
+                                }
+                            </span>
+                            <span class="ms-2">(@Model.Rate / 5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
